@@ -27,10 +27,15 @@ const server = http.createServer((req, res) => {
 
     } else if (urlPath === "/sys") {
         
-        res.setHeader('Content-Type', 'text/plain', "UTF-8", (err) => {
-            res.statusCode = 201;
-            res.end("Your OS info has been saved successfully!");
-        });
+        res.setHeader('Content-Type', 'text/plain');
+        res.statusCode = 201;
+        res.end("Your OS info has been saved successfully!");
+        console.log("Hostname: " + os.hostname());
+        console.log("Platform: " + os.platform());
+        console.log("Architecture: " + os.arch());
+        console.log("NumberofCPUS: " + os.cpus());
+        console.log("Networkinterface: " + os.networkInterfaces());
+        console.log("Uptime: " + os.uptime());
         
     } else {
         
